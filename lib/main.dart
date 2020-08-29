@@ -15,7 +15,7 @@ void main() {
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           tooltip: 'Increment',
-          child: Icon(Icons.traffic),
+          child: Icon(Icons.refresh),
           elevation: 2.0,
         ),
         bottomNavigationBar: BottomAppBar(
