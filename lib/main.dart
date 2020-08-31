@@ -6,6 +6,8 @@ void main() {
     MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
+        appBar: AppBar(
+            title: Text('Monty App'), backgroundColor: Colors.blueGrey[700]),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
