@@ -5,26 +5,31 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-            title: Text('Monty App'), backgroundColor: Colors.blueGrey[700]),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Increment',
-          child: Icon(Icons.traffic),
-          elevation: 2.0,
+        backgroundColor: Colors.blueGrey[100],
+        appBar: AppBar(title: Text('Monty App'), backgroundColor: Colors.green),
+        floatingActionButton: Container(
+          height: 150,
+          width: 150,
+          child: FittedBox(
+            child: FloatingActionButton.extended(
+              onPressed: () {},
+              label: Text("Download"),
+              icon: Icon(Icons.save),
+              backgroundColor: Colors.orange,
+            ),
+          ),
         ),
         bottomNavigationBar: BottomAppBar(
+          color: Colors.green,
           child: Container(
-            height: 60.0,
-            color: Colors.blueAccent[100],
+            height: 50.0,
           ),
-          shape: CircularNotchedRectangle(),
-          color: Colors.blueGrey,
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         body: Center(
           child: Image(
+            height: 300,
+            width: 300,
             image: AssetImage('images/Monty_1.png'),
           ),
         ),
