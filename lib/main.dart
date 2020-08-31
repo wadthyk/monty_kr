@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 
 //The main function is the starting point for all of our Flutter apps
 void main() {
-  var appBar2 = AppBar(
-    title: Text('First App from Wadthy'),
-    backgroundColor: Colors.blueGrey[700],
-  );
   runApp(
     MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
-        appBar: appBar2,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           tooltip: 'Increment',
-          child: Icon(Icons.refresh),
+          child: Icon(Icons.traffic),
           elevation: 2.0,
         ),
         bottomNavigationBar: BottomAppBar(
