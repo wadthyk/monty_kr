@@ -36,7 +36,7 @@ class HomePage extends State<MainPage> {
         child: FittedBox(
           child: FloatingActionButton(
             onPressed: () {},
-            child: Icon(Icons.add),
+            child: Icon(Icons.school),
             backgroundColor: Colors.green,
           ),
         ),
@@ -54,7 +54,7 @@ class HomePage extends State<MainPage> {
               IconButton(
                 iconSize: 30.0,
                 padding: EdgeInsets.only(left: 28.0),
-                icon: Icon(Icons.home),
+                icon: Icon(Icons.show_chart),
                 onPressed: () {
                   setState(() {
                     currentIndex = 0;
@@ -66,7 +66,7 @@ class HomePage extends State<MainPage> {
               IconButton(
                 iconSize: 30.0,
                 padding: EdgeInsets.only(right: 28.0),
-                icon: Icon(Icons.search),
+                icon: Icon(Icons.collections_bookmark),
                 onPressed: () {
                   setState(() {
                     currentIndex = 1;
@@ -77,7 +77,7 @@ class HomePage extends State<MainPage> {
               IconButton(
                 iconSize: 30.0,
                 padding: EdgeInsets.only(left: 28.0),
-                icon: Icon(Icons.notifications),
+                icon: Icon(Icons.search),
                 onPressed: () {
                   setState(() {
                     currentIndex = 2;
@@ -88,7 +88,7 @@ class HomePage extends State<MainPage> {
               IconButton(
                   iconSize: 30.0,
                   padding: EdgeInsets.only(right: 28.0),
-                  icon: Icon(Icons.list),
+                  icon: Icon(Icons.person),
                   onPressed: () {
                     setState(() {
                       currentIndex = 3;
