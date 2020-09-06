@@ -1,103 +1,97 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-//The main function is the starting point for all of our Flutter apps
 void main() => runApp(MyApp());
 
+/// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
+  static const String _title = 'Flutter Code Sample - Monty';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
-      home: MainPage(),
+      home: MyStatefulWidget(),
     );
   }
 }
 
-class MainPage extends StatefulWidget {
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
+
   @override
-  HomePage createState() => HomePage();
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
 
-class HomePage extends State<MainPage> {
-  //PageController _myPage = PageController(initialPage: 0);
-  int currentIndex;
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Portfolio Tab',
+      style: optionStyle,
+    ),
+    Text(
+      'Stocks Tab',
+      style: optionStyle,
+    ),
+    Text(
+      'Academy Tab',
+      style: optionStyle,
+    ),
+    Text(
+      'Search Tab',
+      style: optionStyle,
+    ),
+    Text(
+      'Profile Tab',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
-  //_MyApp createState() => MyApp();
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Container(
-        height: 65.0,
-        width: 65.0,
-        child: FittedBox(
-          child: FloatingActionButton(
-            onPressed: () {},
-            child: Icon(Icons.school),
-            backgroundColor: Colors.green,
-          ),
-        ),
+      appBar: AppBar(
+        title: const Text('Monty Test App'),
+        backgroundColor: Colors.blue[800],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        color: Colors.green,
-        child: Container(
-          height: 65.0,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),
-                icon: Icon(Icons.show_chart),
-                onPressed: () {
-                  setState(() {
-                    currentIndex = 0;
-                    //change tab (Home.dart)
-                    print("${currentIndex}");
-                  });
-                },
-              ),
-              IconButton(
-                iconSize: 30.0,
-                padding: EdgeInsets.only(right: 28.0),
-                icon: Icon(Icons.collections_bookmark),
-                onPressed: () {
-                  setState(() {
-                    currentIndex = 1;
-                    print("${currentIndex}");
-                  });
-                },
-              ),
-              IconButton(
-                iconSize: 30.0,
-                padding: EdgeInsets.only(left: 28.0),
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  setState(() {
-                    currentIndex = 2;
-                    print("${currentIndex}");
-                  });
-                },
-              ),
-              IconButton(
-                  iconSize: 30.0,
-                  padding: EdgeInsets.only(right: 28.0),
-                  icon: Icon(Icons.person),
-                  onPressed: () {
-                    setState(() {
-                      currentIndex = 3;
-                      print("${currentIndex}");
-                    });
-                  })
-            ],
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.show_chart),
+            title: Text('Portfolio'),
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.collections_bookmark),
+            title: Text('Stocks'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            title: Text('Academy'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            title: Text('Search'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text('Profile'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue[800],
+        onTap: _onItemTapped,
       ),
     );
   }
